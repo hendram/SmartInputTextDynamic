@@ -1,0 +1,36 @@
+:root {
+  --display: flex;
+  --flex-direction: row;
+  --width: 47vw;
+  --height: 15vh;
+  --justify-content: center;
+  --align-items: center;
+}
+
+.container {
+  display: var(--display);
+  flex-direction: var(--flex-direction);
+  width: var(--width, 47vw);
+  height: var(--height);
+  flex-wrap: nowrap;
+  align-items: flex-start; /* inputs stay top aligned */
+}
+
+/* New: inputs stacked vertically */
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* small spacing between inputs */
+  flex-grow: 1; /* take remaining space */
+}
+
+/* Buttons row on the right */
+.buttoncontainer {
+  display: flex;
+  flex-direction: row;
+  width: 12vw;
+  height: 5.5vh;
+  justify-content: center;
+  margin-left: auto;
+  align-items: center;
+}

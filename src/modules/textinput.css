@@ -1,0 +1,9 @@
+:root {
+    --text-input-width: 45vw;
+}
+
+.text-input {
+  width: var(--text-input-width);
+  transition: width 0.3s ease;
+}
+
