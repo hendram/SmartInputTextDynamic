@@ -32,11 +32,18 @@ export default function useApp(config = {}) {
     for (const [key, value] of Object.entries(cssVars)) {
       document.documentElement.style.setProperty(key, value);
     }
+
+   
   }, [settings]);
 
   const handleEmptyText = (empty) => {
     const container = document.querySelector(".container");
-    container.style.setProperty("--width", empty ? "47vw" : "37vw");
+    const inputcontainer = document.querySelector(".inputs-container");
+      
+     
+    container.style.setProperty("--width", empty ? "49vw" : "39vw");
+    inputcontainer.style.setProperty("--width-input-con", empty ? "47vw" : "27vw");
+    inputcontainer.style.setProperty("--height-input-con", "8vh")
     setShowButtons(!empty);
 
     if (!empty) {
@@ -44,7 +51,8 @@ export default function useApp(config = {}) {
       if (timerId) clearTimeout(timerId);
 
       const id = setTimeout(() => {
-        container.style.setProperty("--width", "47vw");
+        container.style.setProperty("--width", "49vw");
+        inputcontainer.style.setProperty("--width-input-con", "47vw");
         setShowButtons(false);
       }, 5000);
 
@@ -58,6 +66,19 @@ export default function useApp(config = {}) {
 
   // give buttons access to inputs state
   const { buttons } = useButton(inputs, setInputs);
+
+useEffect(() => {
+  const container = document.querySelector(".container");
+  const inputcontainer = document.querySelector(".inputs-container");
+  
+  if (container) {
+    // adjust height of container based on input count
+    const newHeight = `${inputs.length * 8}vh`; 
+    container.style.setProperty("--height", newHeight);
+    inputcontainer.style.setProperty("--height-input-con", newHeight);
+  }
+}, [inputs.length]);
+
 
   return { inputs, setInputs, handleEmptyText, buttons, showButtons };
 }

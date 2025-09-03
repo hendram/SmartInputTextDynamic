@@ -23,6 +23,7 @@ function App() {
             value={val}
             onChange={(newVal) => handleChange(i, newVal)} // update state
             onEmptyText={(isEmpty) => handleEmptyText(isEmpty)} // toggle buttons
+            showButtons={showButtons}
           />
         ))}
       </div>

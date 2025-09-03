@@ -1,9 +1,15 @@
-:root {
-    --text-input-width: 45vw;
+.textinputdiv {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   width: var(--text-input-div-width, 47vw);
+   height: 7vh;
 }
 
-.text-input {
-  width: var(--text-input-width);
+.textinput {
+  width: var(--text-input-width, 45vw);
+  height: 5vh;
   transition: width 0.3s ease;
 }
 
