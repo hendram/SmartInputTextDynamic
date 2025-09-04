@@ -11,39 +11,36 @@ export default function useApp(config = {}) {
     count: 1,
     buttons: 2,
     direction: "row",
-    width: "47vw",
-    height: "7vh",
-    justify: "center",
-    align: "center",
+    width: "25vw",
+    height: "8vh",
+    justify: "flex-start",
+    align: "flex-start",
   };
 
   const settings = { ...defaults, ...config };
 
   // setup css vars on load/config change
-  useEffect(() => {
-    const cssVars = {
-      "--display": "flex",
-      "--flex-direction": settings.direction,
-      "--width": settings.width,
-      "--height": settings.height,
-      "--justify-content": settings.justify,
-      "--align-items": settings.align,
-    };
+useEffect(() => {
+const cssVars = {
+  "--container-display": "flex",
+  "--container-flex-direction": settings.direction,
+  "--container-width": settings.width,
+  "--container-height": settings.height,
+  "--container-justify": settings.justify,
+  "--container-align-items": settings.align,
+};
     for (const [key, value] of Object.entries(cssVars)) {
       document.documentElement.style.setProperty(key, value);
     }
-
-   
   }, [settings]);
 
   const handleEmptyText = (empty) => {
     const container = document.querySelector(".container");
-    const inputcontainer = document.querySelector(".inputs-container");
-      
+    const inputcontainer = document.querySelector(".inputscontainer");
      
-    container.style.setProperty("--width", empty ? "49vw" : "39vw");
-    inputcontainer.style.setProperty("--width-input-con", empty ? "47vw" : "27vw");
-    inputcontainer.style.setProperty("--height-input-con", "8vh")
+    container.style.setProperty("--container-width", empty ? "25vw" : "25vw");
+    inputcontainer.style.setProperty("--inputscontainer-width", empty ? "25vw" : "13vw");
+    inputcontainer.style.setProperty("--inputscontainer-height", "8vh")
     setShowButtons(!empty);
 
     if (!empty) {
@@ -51,8 +48,8 @@ export default function useApp(config = {}) {
       if (timerId) clearTimeout(timerId);
 
       const id = setTimeout(() => {
-        container.style.setProperty("--width", "49vw");
-        inputcontainer.style.setProperty("--width-input-con", "47vw");
+        container.style.setProperty("--container-width", "25vw");
+        inputcontainer.style.setProperty("--inputscontainer-width", "25vw");
         setShowButtons(false);
       }, 5000);
 
@@ -69,13 +66,13 @@ export default function useApp(config = {}) {
 
 useEffect(() => {
   const container = document.querySelector(".container");
-  const inputcontainer = document.querySelector(".inputs-container");
+  const inputcontainer = document.querySelector(".inputscontainer");
   
   if (container) {
     // adjust height of container based on input count
     const newHeight = `${inputs.length * 8}vh`; 
-    container.style.setProperty("--height", newHeight);
-    inputcontainer.style.setProperty("--height-input-con", newHeight);
+    container.style.setProperty("--container-height", newHeight);
+    inputcontainer.style.setProperty("--inputscontainer-height", newHeight);
   }
 }, [inputs.length]);
 

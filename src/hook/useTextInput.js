@@ -9,14 +9,18 @@ export default function useTextInput(onEmptyText, showButtons, inputRef, divRef)
       if (!textinput || !textinputdiv) return; 
       if (val.length > 0) {
         // shrink to 35vw when typing
-        textinputdiv.style.setProperty("--text-input-div-width", "27vw");
-        textinput.style.setProperty("--text-input-width", "25vw");
+        textinputdiv.style.setProperty("--textinputdiv-width", "13vw");
+        textinput.style.setProperty("--textinput-width", "12vw");
+        textinputdiv.style.setProperty("--textinputdiv-height", "6vh");
+        textinput.style.setProperty("--textinput-height", "5vh");
        
         onEmptyText(false);
       } else {
         // expand back to 45vw when empty
-        textinputdiv.style.setProperty("--text-input-div-width", "47vw");
-        textinput.style.setProperty("--text-input-width", "45vw");
+        textinputdiv.style.setProperty("--textinputdiv-width", "25vw");
+        textinput.style.setProperty("--textinput-width", "24vw");
+        textinputdiv.style.setProperty("--textinputdiv-height", "7vh");
+        textinput.style.setProperty("--textinput-height", "5vh");
         onEmptyText(true);
       }
     },
@@ -29,8 +33,8 @@ export default function useTextInput(onEmptyText, showButtons, inputRef, divRef)
     if (!textinput || !textinputdiv) return;
 
     if (!showButtons) {
-      textinputdiv.style.setProperty("--text-input-div-width", "47vw");
-      textinput.style.setProperty("--text-input-width", "45vw");
+      textinputdiv.style.setProperty("--textinputdiv-width", "25vw");
+      textinput.style.setProperty("--textinput-width", "24vw");
     }
   }, [showButtons, inputRef, divRef]);
 

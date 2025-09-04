@@ -1,15 +1,21 @@
 .textinputdiv {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   width: var(--text-input-div-width, 47vw);
-   height: 7vh;
+  display: var(--textinputdiv-display, flex);
+  flex-direction: var(--textinputdiv-flex-direction, row);
+  justify-content: var(--textinputdiv-justify, center);
+  align-items: var(--textinputdiv-align, center);
+  width: var(--textinputdiv-width, 25vw);
+  height: var(--textinputdiv-height, 6vh);
+  border-radius: var(--textinputdiv-borderradius, 3vw); 
+  border: 1px solid black;   /* black border */
+  background: transparent;   /* transparent background */
+  overflow: hidden;   
 }
 
 .textinput {
-  width: var(--text-input-width, 45vw);
-  height: 5vh;
-  transition: width 0.3s ease;
+  border: none;               /* remove input’s own border */
+  outline: none;              /* remove blue glow when focused */
+  background: transparent;  
+  width: var(--textinput-width, 24vw);
+  height: var(--textinput-height, 5vh);
+  transition: width var(--textinput-transition-duration, 0.3s) var(--textinput-transition-easing, ease);
 }
-

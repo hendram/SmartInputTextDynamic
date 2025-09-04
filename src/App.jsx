@@ -1,10 +1,11 @@
-import React from "react";
+import React, { forwardRef, useImperativeHandle }  from "react";
 import useApp from "./hook/useApp.js";
 import TextInput from "./modules/TextInput.jsx";
 import Button from "./modules/Button.jsx";
 import "./App.css";
 
-function App() {
+
+const SmartInputTextDynamic = forwardRef((props, ref) => {
   const { inputs, setInputs, handleEmptyText, buttons, showButtons } = useApp();
 
   const handleChange = (i, newVal) => {
@@ -13,10 +14,14 @@ function App() {
     setInputs(newInputs);
   };
 
+useImperativeHandle(ref, () => ({
+    getValues: () => inputs,
+  }));
+
   return (
     <div className="container">
       {/* Left side: inputs stacked */}
-      <div className="inputs-container">
+      <div className="inputscontainer">
         {inputs.map((val, i) => (
           <TextInput
             key={i}
@@ -38,6 +43,6 @@ function App() {
       )}
     </div>
   );
-}
+});
 
-export default App;
+export default SmartInputTextDynamic;

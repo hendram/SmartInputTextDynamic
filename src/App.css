@@ -1,32 +1,33 @@
 .container {
-  display: var(--display, flex);
-  flex-direction: var(--flex-direction, row);
-  width: var(--width, 49vw);
-  height: var(--height, 8vh);
-  flex-wrap: nowrap;
-  align-items: flex-start; /* inputs stay top aligned */
+  display: var(--container-display, flex);
+  flex-direction: var(--container-flex-direction, row);
+  width: var(--container-width, 25vw);
+  height: var(--container-height, 8vh);
+  justify-content: var(--container-justify, flex-start); /* add this */
+  flex-wrap: var(--container-flex-wrap, nowrap);
+  align-items: var(--container-align-items, flex-start); /* inputs stay top aligned */
 }
 
-/* New: inputs stacked vertically */
-.inputs-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem; /* small spacing between inputs */
-  flex-grow: 1; /* take remaining space */
-  width: var(--width-input-con, 39vw);
-  height: var(--height-input-con, 8vh);
-  justify-content: center;
-  align-items: center;
+/* Inputs stacked vertically */
+.inputscontainer {
+  display: var(--inputscontainer-display, flex);
+  flex-direction: var(--inputscontainer-flex-direction, column);
+  gap: var(--inputscontainer-gap, 0.5vh); /* small spacing between inputs */
+  flex-grow: var(--inputscontainer-flex-grow, 1); /* take remaining space */
+  width: var(--inputscontainer-width, 25vw);
+  height: var(--inputscontainer-height, 7vh);
+  justify-content: var(--inputscontainer-justify, flex-start);
+  align-items: var(--inputscontainer-align, flex-start);
 }
 
 /* Buttons row on the right */
 .buttoncontainer {
-  display: flex;
-  flex-direction: row;
-  width: 12vw;
-  height: 5.5vh;
-  justify-content: center;
-  margin-left: auto;
-  align-items: center;
-  align-self: flex-start;
+  display: var(--buttons-display, flex);
+  flex-direction: var(--buttons-flex-direction, row);
+  width: var(--buttons-width, 12vw);
+  height: var(--buttons-height, 5.5vh);
+  justify-content: var(--buttons-justify, center);
+  margin-left: var(--buttons-margin-left, auto);
+  align-items: var(--buttons-align, center);
+  align-self: var(--buttons-align-self, flex-start);
 }

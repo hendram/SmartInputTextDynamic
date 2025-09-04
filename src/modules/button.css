@@ -1,26 +1,28 @@
 .custom-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 5vw;
-  height: 5vh;
-  padding: 8px 16px;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background: #4a90e2;
-  color: white;
-  transition: background 0.2s ease, transform 0.1s ease;
+  display: var(--button-display, flex);
+  flex-direction: var(--button-flex-direction, row);
+  justify-content: var(--button-justify, center);
+  align-items: var(--button-align, center);
+  width: var(--button-width, 5vw);
+  height: var(--button-height, 5vh);
+  padding: var(--button-padding, 8px 16px);
+  font-size: var(--button-font-size, 16px);
+  font-weight: var(--button-font-weight, bold);
+  border: var(--button-border, none);
+  border-radius: var(--button-border-radius, 8px);
+  cursor: var(--button-cursor, pointer);
+  background: var(--button-bg, #4a90e2);
+  color: var(--button-color, white);
+  transition: 
+    background var(--button-bg-transition-duration, 0.2s) var(--button-bg-transition-easing, ease),
+    transform var(--button-transform-duration, 0.1s) var(--button-transform-easing, ease);
 }
 
 .custom-button:hover {
-  background: #357abd;
+  background: var(--button-bg-hover, #357abd);
 }
 
 .custom-button:active {
-  transform: scale(0.95);
-  background: #2c5f91;
+  transform: var(--button-active-transform, scale(0.95));
+  background: var(--button-bg-active, #2c5f91);
 }
