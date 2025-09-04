@@ -8,7 +8,6 @@
   border-radius: var(--textinputdiv-borderradius, 3vw); 
   border: 1px solid black;   /* black border */
   background: transparent;   /* transparent background */
-  overflow: hidden;   
 }
 
 .textinput {
