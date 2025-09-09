@@ -3,18 +3,18 @@
   flex-direction: var(--textinputdiv-flex-direction, row);
   justify-content: var(--textinputdiv-justify, center);
   align-items: var(--textinputdiv-align, center);
-  width: var(--textinputdiv-width, 25vw);
-  height: var(--textinputdiv-height, 6vh);
-  border-radius: var(--textinputdiv-borderradius, 3vw); 
+  width: var(--textinputdiv-width, 19vw);
+  height: var(--textinputdiv-height, 5vh);
+  border-radius: var(--textinputdiv-borderradius, 5vw); 
   border: 1px solid black;   /* black border */
-  background: transparent;   /* transparent background */
-}
+  background: transparent;
+  }
 
 .textinput {
   border: none;               /* remove input’s own border */
   outline: none;              /* remove blue glow when focused */
   background: transparent;  
-  width: var(--textinput-width, 24vw);
-  height: var(--textinput-height, 5vh);
+  width: var(--textinput-width, 18vw);
+  height: var(--textinput-height, 4vh);
   transition: width var(--textinput-transition-duration, 0.3s) var(--textinput-transition-easing, ease);
 }

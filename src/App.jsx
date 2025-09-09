@@ -6,7 +6,7 @@ import "./App.css";
 
 
 const SmartInputTextDynamic = forwardRef((props, ref) => {
-  const { inputs, setInputs, handleEmptyText, buttons, showButtons } = useApp();
+  const { inputs, setInputs, handleEmptyText, buttons, showButtons, retypeAfterHide } = useApp();
 
   const handleChange = (i, newVal) => {
     const newInputs = [...inputs];
@@ -25,10 +25,12 @@ useImperativeHandle(ref, () => ({
         {inputs.map((val, i) => (
           <TextInput
             key={i}
+            index={i}
             value={val}
             onChange={(newVal) => handleChange(i, newVal)} // update state
             onEmptyText={(isEmpty) => handleEmptyText(isEmpty)} // toggle buttons
             showButtons={showButtons}
+            retypeAfterHide={retypeAfterHide}
           />
         ))}
       </div>

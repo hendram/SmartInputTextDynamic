@@ -3,7 +3,7 @@
   flex-direction: var(--button-flex-direction, row);
   justify-content: var(--button-justify, center);
   align-items: var(--button-align, center);
-  width: var(--button-width, 5vw);
+  width: var(--button-width, 3vw);
   height: var(--button-height, 5vh);
   padding: var(--button-padding, 8px 16px);
   font-size: var(--button-font-size, 16px);

@@ -5,6 +5,7 @@ export default function useApp(config = {}) {
   const [inputs, setInputs] = useState([""]);
   const [showButtons, setShowButtons] = useState(false);
   const [timerId, setTimerId] = useState(null);
+  const [retypeAfterHide, setRetypeAfterHide] = useState(false);
 
   // default config
   const defaults = {
@@ -38,9 +39,9 @@ const cssVars = {
     const container = document.querySelector(".container");
     const inputcontainer = document.querySelector(".inputscontainer");
      
-    container.style.setProperty("--container-width", empty ? "25vw" : "25vw");
-    inputcontainer.style.setProperty("--inputscontainer-width", empty ? "25vw" : "13vw");
-    inputcontainer.style.setProperty("--inputscontainer-height", "8vh")
+    container.style.setProperty("--container-width", empty ? "20vw" : "20vw");
+    inputcontainer.style.setProperty("--inputscontainer-width", empty ? "20vw" : "13vw");
+    inputcontainer.style.setProperty("--inputscontainer-height", "6vh")
     setShowButtons(!empty);
 
     if (!empty) {
@@ -48,34 +49,22 @@ const cssVars = {
       if (timerId) clearTimeout(timerId);
 
       const id = setTimeout(() => {
-        container.style.setProperty("--container-width", "25vw");
-        inputcontainer.style.setProperty("--inputscontainer-width", "25vw");
+        container.style.setProperty("--container-width", "20vw");
+        inputcontainer.style.setProperty("--inputscontainer-width", "20vw");
         setShowButtons(false);
       }, 5000);
-
+        setRetypeAfterHide(true);
       setTimerId(id);
     } else {
       // if input is cleared manually, stop timer
       if (timerId) clearTimeout(timerId);
-      setTimerId(null);
-    }
+           setTimerId(null);
+    setRetypeAfterHide(false);    
+}
   };
 
   // give buttons access to inputs state
   const { buttons } = useButton(inputs, setInputs);
 
-useEffect(() => {
-  const container = document.querySelector(".container");
-  const inputcontainer = document.querySelector(".inputscontainer");
-  
-  if (container) {
-    // adjust height of container based on input count
-    const newHeight = `${inputs.length * 8}vh`; 
-    container.style.setProperty("--container-height", newHeight);
-    inputcontainer.style.setProperty("--inputscontainer-height", newHeight);
-  }
-}, [inputs.length]);
-
-
-  return { inputs, setInputs, handleEmptyText, buttons, showButtons };
+  return { inputs, setInputs, handleEmptyText, buttons, showButtons, retypeAfterHide };
 }

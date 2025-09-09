@@ -1,8 +1,8 @@
 .container {
   display: var(--container-display, flex);
   flex-direction: var(--container-flex-direction, row);
-  width: var(--container-width, 25vw);
-  height: var(--container-height, 8vh);
+  width: var(--container-width, 20vw);
+  height: var(--container-height, auto);
   justify-content: var(--container-justify, flex-start); /* add this */
   flex-wrap: var(--container-flex-wrap, nowrap);
   align-items: var(--container-align-items, flex-start); /* inputs stay top aligned */
@@ -14,8 +14,8 @@
   flex-direction: var(--inputscontainer-flex-direction, column);
   gap: var(--inputscontainer-gap, 0.5vh); /* small spacing between inputs */
   flex-grow: var(--inputscontainer-flex-grow, 1); /* take remaining space */
-  width: var(--inputscontainer-width, 25vw);
-  height: var(--inputscontainer-height, 7vh);
+  width: var(--inputscontainer-width, 20vw);
+  height: var(--inputscontainer-height, auto);
   justify-content: var(--inputscontainer-justify, flex-start);
   align-items: var(--inputscontainer-align, flex-start);
 }
@@ -24,8 +24,8 @@
 .buttoncontainer {
   display: var(--buttons-display, flex);
   flex-direction: var(--buttons-flex-direction, row);
-  width: var(--buttons-width, 12vw);
-  height: var(--buttons-height, 5.5vh);
+  width: var(--buttons-width, 6vw);
+  height: var(--buttons-height, 5vh);
   justify-content: var(--buttons-justify, center);
   margin-left: var(--buttons-margin-left, auto);
   align-items: var(--buttons-align, center);
